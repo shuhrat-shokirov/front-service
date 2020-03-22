@@ -4,7 +4,7 @@ import (
 	"github.com/shuhrat-shokirov/mux/pkg/mux/middleware/authenticated"
 	"github.com/shuhrat-shokirov/mux/pkg/mux/middleware/jwt"
 	"github.com/shuhrat-shokirov/mux/pkg/mux/middleware/logger"
-	"github.com/shuhrat-shokirov/mux/pkg/mux/middleware/unauthenticated"
+	"github.com/shuhrat-shokirov/mux/pkg/mux/middleware/unAuthenticated"
 	"reflect"
 )
 
@@ -33,4 +33,9 @@ func (s *Server) InitRoutes() {
 	s.router.POST(Posts, s.handlePostsPage(), authMW, jwtMW, logger.Logger("HTTP"))
 	s.router.GET(PostEdit, s.handlePostEditPage(), authMW, jwtMW, logger.Logger("HTTP"))
 	s.router.POST(PostEdit, s.handlePostEdit(), authMW, jwtMW, logger.Logger("HTTP"))
+	s.router.POST("/rooms/new", s.handleAddNewRoom(), unAuthMW, jwtMW, logger.Logger("HTTP"))
+	s.router.GET("/rooms/new", s.handleAddNewRoom(), unAuthMW, jwtMW, logger.Logger("HTTP"))
+//	s.router.GET("/rooms/history/{id}", s.handleHistoryRoom(), jwtMW, logger.Logger("HTTP"))
+//	s.router.POST("/rooms/history/{id}", s.handleHistoryRoom(), jwtMW, logger.Logger("HTTP"))
+
 }

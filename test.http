@@ -1,0 +1,27 @@
+GET http://localhost:8888/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "pass"
+}
+
+###
+GET http://localhost:8888/logout
+Content-Type: application/json
+
+###
+
+POST http://localhost:8888/rooms/new
+Content-Type: application/json
+
+{
+  "name": "Red Room",
+  "file_name": "123.png"
+}
+
+###
+
+POST http://localhost:8888/rooms/history/1
+
+###

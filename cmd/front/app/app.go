@@ -2,14 +2,14 @@ package app
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
-	"front-service/cmd/front/app/rooms"
-	"github.com/jackc/pgx/v4/pgxpool"
 	"github.com/shuhrat-shokirov/core/pgk/core/auth"
 	"github.com/shuhrat-shokirov/core/pgk/core/utils"
 	"github.com/shuhrat-shokirov/jwt/pkg/cmd"
 	"github.com/shuhrat-shokirov/mux/pkg/mux"
 	"html/template"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"path/filepath"
@@ -20,15 +20,11 @@ type Server struct {
 	router     *mux.ExactMux
 	secret     jwt.Secret
 	authClient *auth.Client
-	pool       *pgxpool.Pool
-	roomsSvc   *rooms.Service
 }
 
-func NewServer(router *mux.ExactMux, secret jwt.Secret, authClient *auth.Client, pool *pgxpool.Pool, roomsSvc *rooms.Service) *Server {
-	return &Server{router: router, secret: secret, authClient: authClient, pool: pool, roomsSvc: roomsSvc}
+func NewServer(router *mux.ExactMux, secret jwt.Secret, authClient *auth.Client) *Server {
+	return &Server{router: router, secret: secret, authClient: authClient}
 }
-
-
 func (s *Server) Start() {
 	s.InitRoutes()
 }
@@ -56,22 +52,7 @@ func (s *Server) handleFrontPage() http.HandlerFunc {
 		panic(err)
 	}
 	return func(writer http.ResponseWriter, request *http.Request) {
-		allRooms, err := s.roomsSvc.AllRooms(request.Context(), s.pool)
-
-		if err != nil {
-			log.Print(err)
-			http.Error(writer, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
-			return
-		}
-		log.Print(allRooms)
-		data := struct {
-			Mitings []rooms.Rooms
-		}{
-			Mitings: allRooms,
-		}
-		log.Print(data)
-
-		err = tpl.Execute(writer, data)
+		err = tpl.Execute(writer, struct {}{})
 		if err != nil {
 			log.Printf("error while executing template %s %v", tpl.Name(), err)
 		}
@@ -91,22 +72,7 @@ func (s *Server) handleFrontPageForAuth() http.HandlerFunc {
 	}
 
 	return func(writer http.ResponseWriter, request *http.Request) {
-		allRooms, err := s.roomsSvc.AllRoomsIfOpen(request.Context(), s.pool)
-
-		if err != nil {
-			log.Print(err)
-			http.Error(writer, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
-			return
-		}
-		log.Print(allRooms)
-		data := struct {
-			Mitings []rooms.Rooms
-		}{
-			Mitings: allRooms,
-		}
-		log.Print(data)
-
-		err = tpl.Execute(writer, data)
+		err = tpl.Execute(writer, struct {}{})
 		if err != nil {
 			log.Printf("error while executing template %s %v", tpl.Name(), err)
 		}
@@ -277,3 +243,58 @@ func (s *Server) handleRegister() http.HandlerFunc {
 
 	}
 }
+
+
+func (s *Server) handleAddNewRoom() http.HandlerFunc {
+	return func(writer http.ResponseWriter, request *http.Request) {
+		err := request.ParseForm()
+		if err != nil {
+			log.Print(err)
+		}
+		book := auth.Rooms{}
+		all, err := ioutil.ReadAll(request.Body)
+		err = json.Unmarshal(all, &book)
+		ctx, _ := context.WithTimeout(request.Context(), time.Second)
+		err = s.authClient.NewRoom(ctx, book)
+		log.Print(err)
+		if err != nil {
+				log.Printf("что-то не то, %v", err)
+			} else {
+			writer.Write([]byte("Комната успешно дабавлена!"))
+			return
+		}
+
+	}
+}
+
+//func (s *Server) handleHistoryRoom() http.HandlerFunc {
+//	return func(writer http.ResponseWriter, request *http.Request) {
+//		idFromCTX, ok := mux.FromContext(request.Context(), "id")
+//		if !ok {
+//			http.Error(writer,http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
+//			return
+//		}
+//		id, err := strconv.Atoi(idFromCTX)
+//		if err != nil {
+//			http.Error(writer,http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
+//			return
+//		}
+//		err = request.ParseForm()
+//		if err != nil {
+//			log.Print(err)
+//		}
+//		book := auth.RoomsHistory{}
+//		all, err := ioutil.ReadAll(request.Body)
+//		err = json.Unmarshal(all, &book)
+//		ctx, _ := context.WithTimeout(request.Context(), time.Second)
+//		err = s.authClient.HistoryRoom(ctx, int64(id))
+//		log.Print(err)
+//		if err != nil {
+//				log.Printf("что-то не то, %v", err)
+//			} else {
+//			writer.Write([]byte("История комнат под id!"))
+//			return
+//		}
+//
+//	}
+//}
