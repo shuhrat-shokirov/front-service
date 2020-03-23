@@ -26,34 +26,34 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col"><h1>Комнаты</h1></div>
-        </div>
-        <div class="row">
-            {{ range .Mitings }}
-            <div class="col-4">
-                <div class="card">
+{{/*    <div class="container">*/}}
+    {{/*        <div class="row">*/}}
+    {{/*            <div class="col"><h1>Комнаты</h1></div>*/}}
+    {{/*        </div>*/}}
+    {{/*        <div class="row">*/}}
+    {{/*            {{ range .Mitings }}*/}}
+    {{/*            <div class="col-4">*/}}
+    {{/*                <div class="card">*/}}
 
-                    <img src="../media/{{ .FileName }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Комната {{ .Id }}</h5>
-                        <p class="card-text">
-                        <h3><span class="badge badge-pill badge-danger">Свободно </span></h3>
-                        <h5>C <input type="number" max="24" min="0" size="2">
-                        <input type="number" max="60" min="0" size="2">
-                        </h5>
-                        <h5>До <input type="number" max="24" min="0" size="2">
-                        <input type="number" max="60" min="0" size="2">
-                        </h5>
-                            <button>Забронировать</button>
-                        </p>
+    {{/*                    <img src="../media/{{ .FileName }}" class="card-img-top" alt="...">*/}}
+    {{/*                    <div class="card-body">*/}}
+    {{/*                        <h5 class="card-title">Комната {{ .Id }}</h5>*/}}
+    {{/*                        <p class="card-text">*/}}
+    {{/*                        <h3><span class="badge badge-pill badge-danger">Свободно </span></h3>*/}}
+    {{/*                        <h5>C <input type="number" max="24" min="0" size="2">*/}}
+    {{/*                        <input type="number" max="60" min="0" size="2">*/}}
+    {{/*                        </h5>*/}}
+    {{/*                        <h5>До <input type="number" max="24" min="0" size="2">*/}}
+    {{/*                        <input type="number" max="60" min="0" size="2">*/}}
+    {{/*                        </h5>*/}}
+    {{/*                            <button>Забронировать</button>*/}}
+    {{/*                        </p>*/}}
 
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{ end }}
+    {{/*                    </div>*/}}
+    {{/*                </div>*/}}
+    {{/*            </div>*/}}
+    {{/*        </div>*/}}
+    {{/*        {{ end }}*/}}
     </div>
 </div>
 

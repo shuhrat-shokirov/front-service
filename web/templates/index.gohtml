@@ -43,7 +43,7 @@
                                 <p>
                                 <h3>Система бронирования для</h3></p>
                                 <p>
-                                <h1>залов заседаний и <br/>митингов</h1></p>
+                                <h1>залов, заседаний и <br/>митингов</h1></p>
                                 <br/>
                                 <p>
                                     <button style=" background-color: green; border: solid green; border-radius: 25px;">
@@ -58,47 +58,41 @@
             </div>
         </div>
     </div>
-{{/*    <div class="container">*/}}
-{{/*        <div class="row">*/}}
-{{/*            <div class="col"><h1>Комнаты</h1></div>*/}}
-{{/*        </div>*/}}
-{{/*        <div class="row">*/}}
-{{/*            {{ range .Mitings }}*/}}
-{{/*            <div class="col-4">*/}}
-{{/*                <div class="card">*/}}
+    {{ range . }}
+    <div class="col-4">
+        <div class="card">
+            <img src="../media/{{.FileName}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Комната {{ .Name }}</h5>
+                <p class="card-text">
+                <h3><span class="badge badge-pill badge-danger">Свободно </span></h3></p>
 
-{{/*                    <img src="../media/{{ .FileName }}" class="card-img-top" alt="...">*/}}
-{{/*                    <div class="card-body">*/}}
-{{/*                        <h5 class="card-title">Комната {{ .Id }}</h5>*/}}
-{{/*                        <p class="card-text">*/}}
-{{/*                        <h3><span class="badge badge-pill badge-danger">Свободно </span></h3></p>*/}}
-
-{{/*                    </div>*/}}
-{{/*                </div>*/}}
-{{/*            </div>*/}}
-{{/*        </div>*/}}
-{{/*        {{ end }}*/}}
-{{/*    </div>*/}}
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 </div>
 

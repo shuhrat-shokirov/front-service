@@ -1,3 +1,5 @@
+github.com/burhon94/jsonwebtoken v0.0.0-20200322082125-a5e30ad4c7e4 h1:RsXiZxuzwZnxgbEfBUJnJub/HOEalezoFrIznap0QHk=
+github.com/burhon94/jsonwebtoken v0.0.0-20200322082125-a5e30ad4c7e4/go.mod h1:zigopOAP/nX9V4ZPwbpLCVWRQGjJq6TDRweCfKTUczY=
 github.com/cockroachdb/apd v1.1.0/go.mod h1:8Sl8LxpKi29FqWXR16WEFZRNSz3SoPzUzeMeY4+DwBQ=
 github.com/coreos/go-systemd v0.0.0-20190321100706-95778dfbb74e/go.mod h1:F5haX7vjVVG0kc13fIWeqUViNPyEJxv/OmvnBo0Yme4=
 github.com/coreos/go-systemd v0.0.0-20190719114852-fd7a80b32e1f/go.mod h1:F5haX7vjVVG0kc13fIWeqUViNPyEJxv/OmvnBo0Yme4=
@@ -77,6 +79,7 @@ github.com/shuhrat-shokirov/jwt v0.0.0-20200314214637-7d38b0010d86 h1:0PPRIjXGi+
 github.com/shuhrat-shokirov/jwt v0.0.0-20200314214637-7d38b0010d86/go.mod h1:2HrX+oB9hHjS4Td6+RMajfMZUAt5HTKsW2gvVIaAG+c=
 github.com/shuhrat-shokirov/jwt v0.0.0-20200317123653-74564f0af5dd h1:2pD9bewOCzGERsOg/adD3snrAJa1uVV7Ih2CpFILEek=
 github.com/shuhrat-shokirov/jwt v0.0.0-20200317123653-74564f0af5dd/go.mod h1:2HrX+oB9hHjS4Td6+RMajfMZUAt5HTKsW2gvVIaAG+c=
+github.com/shuhrat-shokirov/mux v0.0.0-20200314221019-249136212c96 h1:ushLkNPccee7dcSdjMKaQmm7Se51l3HcBZU9EBt3ulU=
 github.com/shuhrat-shokirov/mux v0.0.0-20200314221019-249136212c96/go.mod h1:r7vQhMtWpDwaZwKmkERXmjqnmxiLj4TxYSZFdcuTvwU=
 github.com/shuhrat-shokirov/mux v0.0.0-20200317124245-d16ffc4e41ba h1:AtD76JAEmKi5PybdIGCCb0T22ngBGc1MIJIkckinjJU=
 github.com/shuhrat-shokirov/mux v0.0.0-20200317124245-d16ffc4e41ba/go.mod h1:r7vQhMtWpDwaZwKmkERXmjqnmxiLj4TxYSZFdcuTvwU=
@@ -86,6 +89,13 @@ github.com/shuhrat-shokirov/mux v0.0.0-20200320081849-a50e2bd971ee h1:+JEsXHztMO
 github.com/shuhrat-shokirov/mux v0.0.0-20200320081849-a50e2bd971ee/go.mod h1:r7vQhMtWpDwaZwKmkERXmjqnmxiLj4TxYSZFdcuTvwU=
 github.com/shuhrat-shokirov/mux v0.0.0-20200322072821-ffdf3fbb7dfd h1:S8401ny/p0Hyfg0WXbxVB7Wwom1XYIqIIwFBAfGx+WI=
 github.com/shuhrat-shokirov/mux v0.0.0-20200322072821-ffdf3fbb7dfd/go.mod h1:r7vQhMtWpDwaZwKmkERXmjqnmxiLj4TxYSZFdcuTvwU=
+github.com/shuhrat-shokirov/mux v0.0.0-20200322164452-5e12d442966c h1:M1AeUpYO6pSRjhmv7elG/JrjywRVIdq9l5J58NeAiPA=
+github.com/shuhrat-shokirov/mux v0.0.0-20200322164452-5e12d442966c/go.mod h1:r7vQhMtWpDwaZwKmkERXmjqnmxiLj4TxYSZFdcuTvwU=
+github.com/shuhrat-shokirov/mux v0.0.0-20200322165610-56bba0f005ce h1:QZO+KEAxXnCQ2C+jBl+GmwpDDzzGaFRSgtBAzMWQ08U=
+github.com/shuhrat-shokirov/mux v0.0.0-20200322165610-56bba0f005ce/go.mod h1:r7vQhMtWpDwaZwKmkERXmjqnmxiLj4TxYSZFdcuTvwU=
+github.com/shuhrat-shokirov/new-mux v0.0.0-20200322163631-fecbb7bdd1ae h1:Hu1yee+AOroJH80IhOhaodbFBje4nd18uC2o+RMErtE=
+github.com/shuhrat-shokirov/new-mux v0.0.0-20200322172150-b136e076dc87 h1:v81nWGxQpIuj3p+dU4tf7BcemB5TWDie1BJDDJNZeUM=
+github.com/shuhrat-shokirov/new-mux v0.0.0-20200322172150-b136e076dc87/go.mod h1:iyOttvW/2nav1vrGwNYf1HSQVxS/nNmZMb3L+Ty2dl4=
 github.com/shuhrat-shokirov/rest v0.0.0-20200317130447-ca06b1a5b7e7 h1:KIbEPxAygMNyZB7lwLLW0jgWjrbIF6n8F/OvobzzTXo=
 github.com/shuhrat-shokirov/rest v0.0.0-20200317130447-ca06b1a5b7e7/go.mod h1:OtvIIFh3ydtexKs/wRkETH0G2e14mkNxhkdWzwISFPU=
 github.com/sirupsen/logrus v1.4.1/go.mod h1:ni0Sbl8bgC9z8RoU9G6nDWqqs/fq4eDPysMBDgk/93Q=
